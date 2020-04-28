@@ -1,0 +1,136 @@
+.sidebar,
+.off-canvas-sidebar {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  bottom: 0;
+  width: 260px;
+  left: 0;
+  z-index: 1030;
+  border-right: 1px solid #ddd;
+
+  
+  .logo {
+    position: relative;
+    padding: 7px $padding-base-horizontal;
+    z-index: 4;
+
+    // a.logo-mini,
+    // a.logo-normal {
+    //   @extend .animation-transition-general;
+    // }
+
+    a.logo-mini {
+      opacity: 1;
+      float: left;
+      width: 34px;
+      text-align: center;
+      margin-left: 10px;
+      margin-right: 12px;
+    }
+
+    a.logo-normal {
+      display: block;
+      opacity: 1;
+      padding: 11px 0 8px;
+      @include transform-translate-x(0px);
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 15px;
+      height: 1px;
+      width: calc(100% - 30px);
+      background-color: $opacity-5;
+    }
+
+    p {
+      float: left;
+      font-size: 20px;
+      margin: 10px 10px;
+      color: $white-color;
+      line-height: 20px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .simple-text {
+      text-transform: uppercase;
+      padding: $padding-base-vertical 0;
+      display: block;
+      white-space: nowrap;
+      font-size: $font-size-large;
+      color: $white-color;
+      text-decoration: none;
+      font-weight: $font-weight-normal;
+      line-height: 30px;
+      overflow: hidden;
+    }
+  }
+
+  .sidebar-wrapper {
+    position: relative;
+    height: calc(100vh - 75px);
+    overflow: auto;
+    width: 260px;
+    z-index: 4;
+    padding-bottom: 100px;
+
+    .dropdown .dropdown-backdrop {
+      display: none !important;
+    }
+
+    .navbar-form {
+      border: none;
+    }
+  }
+
+  &:before,
+  &:after {
+    display: block;
+    content: "";
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  &:after {
+    @include icon-gradient($default-color);
+    z-index: 3;
+  }
+
+  &[data-color="white"] {
+    @include sidebar-color($white-color);
+    @include sidebar-text-color($default-color);
+  }
+
+  &[data-color="black"] {
+    @include sidebar-color($dark-color);
+  }
+
+  // // Active color changing
+  // &[data-active-color="primary"] {
+  //   @include sidebar-active-color($primary-color);
+  // }
+
+  // &[data-active-color="info"] {
+  //   @include sidebar-active-color($info-color);
+  // }
+
+  // &[data-active-color="success"] {
+  //   @include sidebar-active-color($success-color);
+  // }
+
+  // &[data-active-color="warning"] {
+  //   @include sidebar-active-color($warning-color);
+  // }
+
+  // &[data-active-color="danger"] {
+  //   @include sidebar-active-color($danger-color);
+  // }
+
+}

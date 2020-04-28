@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+// import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+// import logo from './logo.svg';
 import './App.css';
+
+import "bootstrap/dist/css/bootstrap.css";
+import "./assets/scss/main.scss?v=1.1.0";
+// import "assets/demo/demo.css";
+import "perfect-scrollbar/css/perfect-scrollbar.css";
+
+import BaseLayout from "./layouts/baseLayout";
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <BaseLayout />
+    </BrowserRouter>
+    // <BrowserRouter>
+    //   <Switch>
+    //     <Route path="/" render={props => <BaseLayout {...props} />} />
+    //     {/* <Redirect to="/admin/dashboard" /> */}
+    //   </Switch>
+    //   {/* <div className="App">
+    //     <header className="App-header">
+    //     </header>
+    //   </div> */}
+    // </BrowserRouter>
   );
 }
 
