@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from "react-router-dom";
 import { Nav } from "reactstrap";
-import logo from "../assets/img/logo.png";
+import logo from "../assets/img/Lunularia-blue-60.svg";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 
