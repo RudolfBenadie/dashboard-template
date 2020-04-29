@@ -4,7 +4,7 @@ import React from 'react';
 // import './App.css';
 
 import "bootstrap/dist/css/bootstrap.css";
-import "./assets/scss/main.scss?v=1.1.0";
+import "./assets/scss/lunularia.scss?v=1.1.0";
 // import "assets/demo/demo.css";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 

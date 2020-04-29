@@ -15,8 +15,8 @@ class BaseLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      backgroundColor: "black",
-      activeColor: "info"
+      backgroundColor: "dark",
+      activeColor: "default"
     };
     this.mainPanel = React.createRef();
   }

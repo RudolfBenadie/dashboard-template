@@ -1,0 +1,83 @@
+//  COLORS
+
+$opacity-1:                  rgba(255,255,255, .1) !default;
+$opacity-2:                  rgba(255,255,255, .2) !default;
+$opacity-3:                  rgba(255,255,255, .3) !default;
+$opacity-4:                  rgba(255,255,255, .4) !default;
+$opacity-5:                  rgba(255,255,255, .5) !default;
+$opacity-6:                  rgba(255,255,255, .6) !default;
+$opacity-7:                  rgba(255,255,255, .7) !default;
+$opacity-8:                  rgba(255,255,255, .8) !default;
+$opacity-9:                  rgba(255,255,255, .9) !default;
+
+$steelblue:                  #4682B4 !default;
+$steelblue-darken-1:         darken($steelblue, 9%);
+$steelblue-darken-2:         darken($steelblue, 18%);
+$steelblue-darken-3:         darken($steelblue, 27%);
+$steelblue-darken-4:         darken($steelblue, 36%);
+$steelblue-darken-5:         darken($steelblue, 45%);
+$steelblue-lighten-1:        lighten($steelblue, 9%);
+$steelblue-lighten-2:        lighten($steelblue, 18%);
+$steelblue-lighten-3:        lighten($steelblue, 27%);
+$steelblue-lighten-4:        lighten($steelblue, 36%);
+$steelblue-lighten-5:        lighten($steelblue, 45%);
+
+$light-border:               #ddd !default;
+
+$default-color:              $steelblue-darken-5;
+
+$light-color:                $steelblue-lighten-5 !default;
+$white-bg:                   $steelblue-lighten-5 !default;
+$dark-bg:                    $steelblue-darken-5 !default;
+$dark-color:                 $steelblue-darken-4 !default;
+
+//  FONT
+
+$font-size-large:            1rem !default;
+
+$font-weight-normal:         400 !default;
+
+//  ELEMENT STYLES
+
+$padding-base-vertical:      .5rem !default;
+$padding-base-horizontal:    .7rem !default;
+
+//  TRANSFORMATIONS
+
+@mixin transform-translate-x($value){
+  -webkit-transform:  translate3d($value, 0, 0);
+     -moz-transform: translate3d($value, 0, 0);
+     -o-transform: translate3d($value, 0, 0);
+     -ms-transform: translate3d($value, 0, 0);
+     transform: translate3d($value, 0, 0);
+}
+
+@mixin transform-translate-y($value){
+  -webkit-transform:  translate3d(0,$value,0) !important;
+     -moz-transform: translate3d(0,$value,0) !important;
+     -o-transform: translate3d(0,$value,0) !important;
+     -ms-transform: translate3d(0,$value,0) !important;
+     transform: translate3d(0,$value,0) !important;
+}
+
+//  TRANSITIONS
+
+$general-transition-time:    300ms !default;
+$transition-linear:          linear !default;
+$transition-bezier:          cubic-bezier(0.34, 1.61, 0.7, 1) !default;
+$transition-ease:            ease 0s;
+
+//  ANIMATIONS
+
+.nav-pills .nav-link,
+.navbar,
+.nav-tabs .nav-link,
+.sidebar .nav a,
+.sidebar .nav a i,
+.animation-transition-general,
+.tag,
+.tag [data-role="remove"],
+.animation-transition-general{
+    @include transition($general-transition-time, $transition-ease);
+}
+
