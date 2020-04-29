@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from "react-router-dom";
 import { Nav } from "reactstrap";
-import logo from "../logo.svg";
+import logo from "../assets/img/logo.png";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 
@@ -48,7 +48,7 @@ class SideBar extends Component {
             className="simple-text logo-mini"
           >
             <div className="logo-img">
-              <img src={logo} alt="react-logo" width="40px" />
+              <img src={logo} alt="lunularia logo" />
             </div>
           </a>
           <a

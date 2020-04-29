@@ -1,3 +1,7 @@
+.logo-img>img {
+  height: 25px;
+}
+
 .sidebar,
 .off-canvas-sidebar {
   position: fixed;
@@ -6,7 +10,7 @@
   bottom: 0;
   width: 25vw;
   left: 0;
-  z-index: 999;
+  z-index: 9999;
   border-right: 1px solid $light-border;
 
   .sidebar-wrapper {
