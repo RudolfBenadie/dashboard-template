@@ -1,4 +1,4 @@
-.logo-img>img {
+.logo-img > img {
   height: 25px;
 }
 
@@ -22,76 +22,76 @@
     padding-bottom: 100px;
   }
 
-  .logo{
+  .logo {
     position: relative;
     padding: 7px $padding-base-horizontal;
+    height: 60px;
     z-index: 4;
 
     a.logo-mini,
-    a.logo-normal{
-        @extend .animation-transition-general;
+    a.logo-normal {
+      @extend .animation-transition-general;
     }
 
-    a.logo-mini{
-        opacity: 1;
-        float: left;
-        width: 34px;
-        text-align: center;
-        margin-left: 10px;
-        margin-right: 12px;
+    a.logo-mini {
+      opacity: 1;
+      float: left;
+      width: 34px;
+      text-align: center;
+      margin-left: 10px;
+      margin-right: 12px;
     }
 
-    a.logo-normal{
-        display: block;
-        opacity: 1;
-        padding: 11px 0 8px;
-        @include transform-translate-x(0px);
+    a.logo-normal {
+      display: block;
+      opacity: 1;
+      padding: 11px 0 8px;
+      @include transform-translate-x(0px);
     }
 
-    &:after{
-        content: '';
-        position: absolute;
-        bottom: 0;
-        right: 15px;
-        height: 1px;
-        width: calc(100% - 30px);
-        background-color: $opacity-5;
-
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 15px;
+      height: 1px;
+      width: calc(100% - 30px);
+      background-color: $opacity-5;
     }
 
-    p{
-        float: left;
-        font-size: 20px;
-        margin: 10px 10px;
-        color: $light-color;
-        line-height: 20px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    p {
+      float: left;
+      font-size: 20px;
+      margin: 10px 10px;
+      color: $light-color;
+      line-height: 20px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
-    .simple-text{
-        text-transform: uppercase;
-        padding: $padding-base-vertical 0;
-        display: block;
-        white-space: nowrap;
-        font-size: $font-size-large;
-        color: $light-color;
-        text-decoration: none;
-        font-weight: $font-weight-normal;
-        line-height: 30px;
-        overflow: hidden;
+    .simple-text {
+      text-transform: uppercase;
+      padding: $padding-base-vertical 0;
+      display: block;
+      white-space: nowrap;
+      font-size: $font-size-large;
+      color: $light-color;
+      text-decoration: none;
+      font-weight: $font-weight-normal;
+      line-height: 30px;
+      overflow: hidden;
     }
-}
+  }
 
   &:before,
-  &:after{
-      display: block;
-      content: "";
-      opacity: 1;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
+  &:after {
+    display: block;
+    content: "";
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
   }
 
   &[data-color="light"] {
