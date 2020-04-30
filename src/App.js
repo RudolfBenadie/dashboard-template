@@ -14,9 +14,12 @@ import BaseLayout from "./layouts/baseLayout";
 function App() {
   return (
     <BrowserRouter>
-       <Switch>
-         <Route path="/dashboard" render={props => <BaseLayout {...props} />} />
-       </Switch>
+      <div className="App">
+        <Switch>
+          <Route path="/dashboard" render={props => <BaseLayout {...props} />} />
+          <Redirect to="/dashboard" />
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }

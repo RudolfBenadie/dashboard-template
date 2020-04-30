@@ -11,12 +11,21 @@ a.nav-link {
   }
 }
 
+.navbar-nav {
+  flex-direction: row;
+
+  .nav-item {
+    padding: 0 10px;
+  }
+}
+
 .navbar {
   padding: 0 15px;
   min-height: 60px;
 
   .justify-content-end {
     display: flex;
+    flex-direction: row;
     flex-basis: auto;
     flex-grow: 1;
     align-items: center;
