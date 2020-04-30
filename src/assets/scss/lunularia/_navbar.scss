@@ -2,6 +2,15 @@
   background-color: $dark-color !important;
 }
 
+a.nav-link {
+  display: flex;
+  align-items: center;
+
+  p {
+    margin: 0 5px;
+  }
+}
+
 .navbar {
   padding: 0 15px;
   min-height: 60px;
@@ -24,6 +33,7 @@
         margin: 0;
       }
     }
+
     .navbar-toggle {
       .navbar-toggler {
         padding-left: 0;
@@ -58,6 +68,7 @@
     .nav-item .nav-link:not(.btn) {
       color: $default-color;
     }
+
     .nav-item.active .nav-link:not(.btn),
     .nav-item .nav-link:not(.btn):focus,
     .nav-item .nav-link:not(.btn):hover,
@@ -65,6 +76,7 @@
     .nav-item .nav-link:not(.btn):active {
       color: $primary-color;
     }
+
   }
 
   &.navbar-absolute {

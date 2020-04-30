@@ -1,19 +1,14 @@
 import Dashboard from "../views/dashboard";
 // import Notifications from "views/Notifications.jsx";
-// import Icons from "views/Icons.jsx";
-// import Typography from "views/Typography.jsx";
-// import TableList from "views/Tables.jsx";
-// import Maps from "views/Map.jsx";
 // import UserPage from "views/User.jsx";
-// import UpgradeToPro from "views/Upgrade.jsx";
 
 var routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    icon: "nc-icon nc-bank",
+    icon: "nc-icon nc-layout-11",
     component: Dashboard,
-    layout: "/admin"
+    layout: ""
   }
   // {
   //   path: "/icons",

@@ -153,7 +153,7 @@ class NavBar extends Component {
 
               <NavItem>
                 <Link to="#pablo" className="nav-link btn-magnify">
-                  <i className="nc-icon nc-layout-11" />
+                  <i className="nc-icon nc-chart-bar-32" />
                   {/* <p>
                     <span className="d-lg-none d-md-block">Stats</span>
                   </p> */}
