@@ -61,11 +61,6 @@ class BaseLayout extends Component {
         />
         <div className="main-panel" ref={this.mainPanel}>
           <Navbar {...this.props} />
-          <p></p>
-          <br />
-          <br />
-          <br />
-          <br />
           <Switch>
             {routes.map((prop, key) => {
               return (

@@ -15,16 +15,9 @@ function App() {
   return (
     <BrowserRouter>
        <Switch>
-         <Route path="/" render={props => <BaseLayout {...props} />} />
-         <Redirect to="/admin/dashboard" />
+         <Route path="/dashboard" render={props => <BaseLayout {...props} />} />
        </Switch>
     </BrowserRouter>
-    // <BrowserRouter>
-    //   {/* <div className="App">
-    //     <header className="App-header">
-    //     </header>
-    //   </div> */}
-    // </BrowserRouter>
   );
 }
 
