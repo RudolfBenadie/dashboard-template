@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+// react plugin used to create charts
+// import { Line, Pie } from "react-chartjs-2";
 // reactstrap components
 import {
   Card,
@@ -10,6 +11,12 @@ import {
   Row,
   Col
 } from "reactstrap";
+// core components
+// import {
+//   dashboard24HoursPerformanceChart,
+//   dashboardEmailStatisticsChart,
+//   dashboardNASDAQChart
+// } from "variables/charts.jsx";
 
 class Dashboard extends Component {
 
@@ -132,6 +139,14 @@ class Dashboard extends Component {
                   <CardTitle tag="h5">Users Behavior</CardTitle>
                   <p className="card-category">24 Hours performance</p>
                 </CardHeader>
+                <CardBody>
+                  {/* <Line
+                    data={dashboard24HoursPerformanceChart.data}
+                    options={dashboard24HoursPerformanceChart.options}
+                    width={400}
+                    height={100}
+                  /> */}
+                </CardBody>
                 <CardFooter>
                   <hr />
                   <div className="stats">
