@@ -104,18 +104,9 @@ class NavBar extends Component {
     return (
       // add or remove classes depending if we are on full-screen-maps page or not
       <Navbar
-        color={
-          this.props.location && this.props.location.pathname.indexOf("full-screen-maps") !== -1
-            ? "dark"
-            : this.state.color
-        }
+        color={"dark"}
         expand="lg"
-        className={
-          this.props.location && this.props.location.pathname.indexOf("full-screen-maps") !== -1
-            ? "navbar-absolute fixed-top"
-            : "navbar-absolute fixed-top " +
-            (this.state.color === "transparent" ? "navbar-transparent " : "")
-        }
+        className={"navbar-absolute fixed-top"}
       >
         <Container fluid>
           <div className="navbar-wrapper">
@@ -150,7 +141,6 @@ class NavBar extends Component {
               </InputGroup>
             </form>
             <Nav navbar>
-
               <NavItem>
                 <Link to="#pablo" className="nav-link btn-magnify">
                   <i className="nc-icon nc-chart-bar-32" />
