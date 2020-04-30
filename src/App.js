@@ -9,6 +9,8 @@ import "./assets/scss/lunularia.scss?v=1.1.0";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 import BaseLayout from "./layouts/baseLayout";
+import Authenticate from "./layouts/authenticate";
+
 // import { BrowserRouter } from 'react-router-dom';
 
 function App() {
@@ -17,7 +19,8 @@ function App() {
       <div className="App">
         <Switch>
           <Route path="/dashboard" render={props => <BaseLayout {...props} />} />
-          <Redirect to="/dashboard" />
+          <Route path="/login-register" render={props => <Authenticate {...props} />} />
+          <Redirect to="/login-register" />
         </Switch>
       </div>
     </BrowserRouter>

@@ -9,3 +9,4 @@
   1. npm install node-sass
   1. npm install redux
   1. npm install react-redux
+  1. npm install redux-persist
