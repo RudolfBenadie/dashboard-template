@@ -1,6 +1,5 @@
 const initState = {
   currentUser: null,
-  users: {},
   authError: null
 };
 

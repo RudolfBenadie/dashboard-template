@@ -8,7 +8,7 @@ const auth = (credentials) => {
       reject(Error("Invalid credentials"));
     }
   });
-}
+};
 
 export const signIn = (credentials) => {
   return (dispatch, getState) => {
@@ -19,6 +19,19 @@ export const signIn = (credentials) => {
       })
       .catch((err) => {
         dispatch({ type: 'USER_LOGIN_FAILED', err })
+      });
+  }
+};
+
+export const signUp = (signUpArgs) => {
+  return (dispatch, getState) => {
+    auth(signUpArgs)
+      .then(result => {
+        const authenticatedUser = { ...result };
+        dispatch({ type: 'USER_SIGNUP_SUCCEEDED', authenticatedUser })
+      })
+      .catch((err) => {
+        dispatch({ type: 'USER_SIGNUP_FAILED', err })
       });
   }
 };

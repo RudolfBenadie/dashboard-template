@@ -4,37 +4,68 @@ import { connect } from 'react-redux';
 // reactstrap components
 import {
   Card,
-  // CardHeader,
   CardBody,
-  // CardFooter,
-  // CardTitle,
   Row,
   Col
 } from "reactstrap";
-import { signIn } from '../store/actions/authActions';
+import { signIn, signUp } from '../store/actions/authActions';
 
 class Authenticate extends Component {
 
   state = {
     email: null,
     password: null,
+    signUpEmail: null,
+    signUpPassword: null,
     confirmPassword: null,
     firstNames: null,
     lastName: null,
     idNumber: null
-  }
+  };
+
+  validateSignUpArgs = (signUpArgs) => {
+    var errors = [];
+    if (!signUpArgs.email) errors.push("Email cannot be empty when registering a new user.");
+    if (signUpArgs.password !== signUpArgs.confirmPassword) errors.push("The password and password confirmation must be the same.");
+    if (!signUpArgs.password || signUpArgs.password === "") errors.push("The password cannot be empty.");
+    if (!signUpArgs.firstNames) errors.push("Please supply a name or names for the new user.");
+    if (!signUpArgs.lastNames) errors.push("Please tell us the surname for the new user.");
+    if (!signUpArgs.firstNames) errors.push("Please supply an identity number for the new user.");
+    return errors;
+  };
 
   handleChange = (e) => {
     e.preventDefault();
     this.setState({
       [e.target.id]: e.target.value
     })
-  }
+  };
 
   handleSubmitLogin = (e) => {
     e.preventDefault();
-    this.props.signIn(this.state);
-  }
+    this.props.signIn({
+      email: this.state.email,
+      password: this.state.password
+    });
+  };
+
+  handleSubmitRegister = (e) => {
+    e.preventDefault();
+    const signUpArgs = {
+      email: this.state.signUpEmail,
+      password: this.state.signUpPassword,
+      confirmPassword: this.state.confirmPassword,
+      firstNames: this.state.firstNames,
+      lastName: this.state.lastName,
+      idNumber: this.state.idNumber
+    };
+    var validationErrors = this.validateSignUpArgs(signUpArgs);
+    if (validationErrors.length === 0) {
+      this.props.signUp(signUpArgs);
+    } else {
+      alert("Cannot sign up the user.\r\nThere are errors in the arguments.");
+    };
+  };
 
   render() {
     const { authError, currentUser } = this.props.authData;
@@ -52,8 +83,7 @@ class Authenticate extends Component {
                         <h4>Sign in</h4>
                         <div className="form-group">
                           <label htmlFor="email" className="col-form-label col-form-label-sm">Email address</label>
-                          <input type="email" className="form-control form-control-sm" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
-                          {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
+                          <input id="email" type="email" className="form-control form-control-sm" placeholder="Enter email" onChange={this.handleChange}></input>
                         </div>
                         <div className="form-group">
                           <label htmlFor="password" className="col-form-label col-form-label-sm">Password</label>
@@ -74,15 +104,15 @@ class Authenticate extends Component {
                         <h4>Sign up</h4>
                         <div className="form-group">
                           <label htmlFor="signUpEmail" className="col-form-label col-form-label-sm">Email</label>
-                          <input type="email" placeholder="Enter email" className="form-control form-control-sm" id="signUpEmail" onChange={this.handleChange} ></input>
+                          <input id="signUpEmail" type="email" placeholder="Enter email" className="form-control form-control-sm" onChange={this.handleChange} ></input>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="signUpPassword" className="col-form-label col-form-label-sm">Password</label>
-                          <input type="password" placeholder="Enter password" className="form-control form-control-sm" id="signUpPassword" onChange={this.handleChange} ></input>
+                          <label htmlFor="signUpPassword" className="col-form-label col-form-label-sm">Password</label>
+                          <input id="signUpPassword" type="password" placeholder="Enter password" className="form-control form-control-sm" onChange={this.handleChange} ></input>
                         </div>
                         <div className="form-group">
-                        <label htmlFor="confirmPassword" className="col-form-label col-form-label-sm">Confirm password</label>
-                          <input type="password" placeholder="Confirm password" className="form-control form-control-sm" id="confirmPassword" onChange={this.handleChange} ></input>
+                          <label htmlFor="confirmPassword" className="col-form-label col-form-label-sm">Confirm password</label>
+                          <input id="confirmPassword" type="password" placeholder="Confirm password" className="form-control form-control-sm" onChange={this.handleChange} ></input>
                         </div>
                         <div className="form-group">
                           <label htmlFor="firstNames" className="col-form-label col-form-label-sm">First name(s)</label>
@@ -123,8 +153,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    signIn: (credentials) => dispatch(signIn(credentials))
+    signIn: (credentials) => dispatch(signIn(credentials)),
+    signUp: (signUpArgs) => dispatch(signUp(signUpArgs))
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Authenticate);
