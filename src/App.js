@@ -1,30 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-// import logo from './logo.svg';
-// import './App.css';
+import { connect } from 'react-redux';
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./assets/scss/lunularia.scss?v=1.1.0";
-// import "assets/demo/demo.css";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 import BaseLayout from "./layouts/baseLayout";
 import Authenticate from "./layouts/authenticate";
 
-// import { BrowserRouter } from 'react-router-dom';
+class App extends Component {
 
-function App() {
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/dashboard" render={props => <BaseLayout {...props} />} />
-          <Route path="/login-register" render={props => <Authenticate {...props} />} />
-          <Redirect to="/login-register" />
-        </Switch>
-      </div>
-    </BrowserRouter>
-  );
-}
+  render() {
+    var { currentUser } = this.props.authData;
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Switch>
+            <Route path="/dashboard" render={props => <BaseLayout {...props} />} />
+            <Route path="/login-register" render={props => <Authenticate {...props} />} />
+            { currentUser ? <Redirect to="/dashboard" /> : <Redirect to="/login-register" />}
+          </Switch>
+        </div>
+      </BrowserRouter>
+    )
+  };
+};
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    authData: state.authData
+  }
+};
+
+export default connect(mapStateToProps)(App);

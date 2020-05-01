@@ -1,15 +1,18 @@
 const initState = {
   currentUser: null,
-  users: {},
   authError: null
 };
 
 const authReducer = (state = initState, action) => {
   switch (action.type) {
+    case 'USER_LOGOUT':
+      return {
+        ...initState
+      };
     case 'USER_LOGIN_SUCCEEDED':
       return {
         ...state,
-        currentUser: action.currentUser,
+        currentUser: action.authenticatedUser,
         authError: null
       };
     case 'USER_LOGIN_FAILED':

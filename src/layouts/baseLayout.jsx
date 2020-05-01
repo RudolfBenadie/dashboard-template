@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Switch } from "react-router-dom";
@@ -23,14 +25,15 @@ class BaseLayout extends Component {
 
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(this.mainPanel.current);
+      ps = this.mainPanel.current && new PerfectScrollbar(this.mainPanel.current);
       document.body.classList.toggle("perfect-scrollbar-on");
     }
   }
 
   componentWillUnmount() {
     if (navigator.platform.indexOf("Win") > -1) {
-      ps.destroy();
+      if (ps)
+        ps.destroy();
       document.body.classList.toggle("perfect-scrollbar-on");
     }
   }
@@ -51,6 +54,9 @@ class BaseLayout extends Component {
   };
 
   render() {
+    const { currentUser } = this.props.authData
+    if (!currentUser)
+      return <Redirect to="/login-register" />;
     return (
       <div className="wrapper">
         <Sidebar
@@ -84,6 +90,12 @@ class BaseLayout extends Component {
     )
   }
 
+};
+
+const mapStateToProps = (state) => {
+  return {
+    authData: state.authData
+  }
 }
 
-export default BaseLayout;
+export default connect(mapStateToProps)(BaseLayout);
