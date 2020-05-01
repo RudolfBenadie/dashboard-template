@@ -1,7 +1,8 @@
 .authenticate{
-  height: 100vh;
+  height: 100%;
   background-color: $steelblue-darken-4;
-  padding-top: 15vh;
+  padding: 50px 0;
+  overflow-x: hidden;
 
   .centre {
     margin: 0 auto;
@@ -9,5 +10,46 @@
 
   .card-title {
     text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
+
+  .col-form-label-sm {
+    font-size: 0.8rem;
+    padding-bottom: 0;
+  }
+
+  .col-6,
+  .col-md-6 {
+    padding-left: 0;
+  }
+
+  .form-control-sm {
+    font-size: 0.8rem;
+  }
+
+  .btn {
+    margin-top: 10px;
+  }
+
+  .btn-dark {
+    border-color: $steelblue-darken-4;
+    background-color: $steelblue-darken-4;
+    color: $steelblue-lighten-4;
+  }
+
+  .red-text {
+    color: rgb(212, 34, 34);
+  }
+  
+  .center-text {
+    text-align: center;
+  }
+
+  .signUpContainer {
+    border-left: $steelblue-darken-4 1px solid;
+    padding-left: 40px;
   }
 }
