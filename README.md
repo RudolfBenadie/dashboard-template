@@ -10,3 +10,4 @@
   1. npm install redux
   1. npm install react-redux
   1. npm install redux-persist
+  1. npm install redux-thunk

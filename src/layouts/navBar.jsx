@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import {
   Navbar,
@@ -16,7 +17,7 @@ import {
   InputGroupAddon,
   Input
 } from "reactstrap";
-
+import { signOut } from '../store/actions/authActions';
 import routes from "./routes";
 
 class NavBar extends Component {
@@ -171,7 +172,7 @@ class NavBar extends Component {
                   </p> */}
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem tag="a">Action</DropdownItem>
+                  <DropdownItem tag="a" onClick={this.props.signOut}>Sign out</DropdownItem>
                   <DropdownItem tag="a">Another Action</DropdownItem>
                   <DropdownItem tag="a">Something else here</DropdownItem>
                 </DropdownMenu>
@@ -186,4 +187,10 @@ class NavBar extends Component {
 
 }
 
-export default NavBar;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signOut: () => dispatch(signOut())
+  }
+};
+
+export default connect(null, mapDispatchToProps)(NavBar);
