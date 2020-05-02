@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// reactstrap components
 import {
   Card,
   CardBody,
   Row,
-  Col
+  Col,
+
+  InputGroup,
+  InputGroupAddon,
+  Input
 } from "reactstrap";
 import { signIn, signUp } from '../store/actions/authActions';
 
@@ -77,18 +80,18 @@ class Authenticate extends Component {
             <Card>
               <CardBody>
                 <Row>
-                  <Col md="6" xs="6">
+                  <Col md="6" xs="12">
                     <div className="container">
                       <form onSubmit={this.handleSubmitLogin}>
                         <h4>Sign in</h4>
-                        <div className="form-group">
-                          <label htmlFor="email" className="col-form-label col-form-label-sm">Email address</label>
-                          <input id="email" type="email" className="form-control form-control-sm" placeholder="Enter email" onChange={this.handleChange}></input>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="password" className="col-form-label col-form-label-sm">Password</label>
-                          <input type="password" placeholder="Enter password" className="form-control form-control-sm" id="password" onChange={this.handleChange} ></input>
-                        </div>
+                        <InputGroup size="sm">
+                          <InputGroupAddon addonType="prepend">Email</InputGroupAddon>
+                          <Input id="email" addon type="text" placeholder="..." onChange={this.handleChange} />
+                        </InputGroup>
+                        <InputGroup size="sm">
+                          <InputGroupAddon addonType="prepend">Password: </InputGroupAddon>
+                          <Input id="password" addon type="password" placeholder="..." onChange={this.handleChange} />
+                        </InputGroup>
                         <div className="form-group">
                           <button className="btn btn-dark">Login</button>
                           <div className="red-text center">
@@ -98,34 +101,34 @@ class Authenticate extends Component {
                       </form>
                     </div>
                   </Col>
-                  <Col md="6" xs="6">
+                  <Col md="6" xs="12">
                     <div className="signUpContainer">
                       <form onSubmit={this.handleSubmitRegister}>
                         <h4>Sign up</h4>
-                        <div className="form-group">
-                          <label htmlFor="signUpEmail" className="col-form-label col-form-label-sm">Email</label>
-                          <input id="signUpEmail" type="email" placeholder="Enter email" className="form-control form-control-sm" onChange={this.handleChange} ></input>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="signUpPassword" className="col-form-label col-form-label-sm">Password</label>
-                          <input id="signUpPassword" type="password" placeholder="Enter password" className="form-control form-control-sm" onChange={this.handleChange} ></input>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="confirmPassword" className="col-form-label col-form-label-sm">Confirm password</label>
-                          <input id="confirmPassword" type="password" placeholder="Confirm password" className="form-control form-control-sm" onChange={this.handleChange} ></input>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="firstNames" className="col-form-label col-form-label-sm">First name(s)</label>
-                          <input id="firstNames" placeholder="Enter first name(s)" className="form-control form-control-sm" type="text" onChange={this.handleChange} ></input>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="lastName" className="col-form-label col-form-label-sm">Last name</label>
-                          <input id="lastName" placeholder="Enter surname" className="form-control form-control-sm" type="text" onChange={this.handleChange} ></input>
-                        </div>
-                        <div className="form-group">
-                          <label htmlFor="idNumber" className="col-form-label col-form-label-sm">ID/Passport number</label>
-                          <input id="idNumber" placeholder="Enter identity number" className="form-control form-control-sm" type="text" onChange={this.handleChange} ></input>
-                        </div>
+                        <InputGroup size="sm">
+                          <InputGroupAddon addonType="prepend">Email: </InputGroupAddon>
+                          <Input id="signUpEmail" addon type="email" placeholder="..." onChange={this.handleChange} />
+                        </InputGroup>
+                        <InputGroup size="sm">
+                          <InputGroupAddon addonType="prepend">Password: </InputGroupAddon>
+                          <Input id="signUpPassword" addon type="password" placeholder="..." onChange={this.handleChange} />
+                        </InputGroup>
+                        <InputGroup size="sm">
+                          <InputGroupAddon addonType="prepend">Confirm password: </InputGroupAddon>
+                          <Input id="confirmPassword" addon type="password" placeholder="Retype password here..." onChange={this.handleChange} />
+                        </InputGroup>
+                        <InputGroup size="sm">
+                          <InputGroupAddon addonType="prepend">First name(s): </InputGroupAddon>
+                          <Input id="firstNames" addon type="text" placeholder="..." onChange={this.handleChange} />
+                        </InputGroup>
+                        <InputGroup size="sm">
+                          <InputGroupAddon addonType="prepend">Last name: </InputGroupAddon>
+                          <Input id="lastName" addon type="text" placeholder="..." onChange={this.handleChange} />
+                        </InputGroup>
+                        <InputGroup size="sm">
+                          <InputGroupAddon addonType="prepend">ID/Passport number: </InputGroupAddon>
+                          <Input id="idNumber" addon type="text" placeholder="..." onChange={this.handleChange} />
+                        </InputGroup>
                         <div className="form-group">
                           <button className="btn btn-dark">Register</button>
                           <div className="red-text center-text">

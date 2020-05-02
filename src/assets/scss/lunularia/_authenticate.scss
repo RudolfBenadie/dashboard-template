@@ -1,5 +1,5 @@
-.authenticate{
-  height: 100%;
+.authenticate {
+  height: 100vh;
   background-color: $steelblue-darken-4;
   padding: 50px 0;
   overflow-x: hidden;
@@ -12,22 +12,30 @@
     text-align: center;
   }
 
-  .form-group {
+  .input-group {
     margin-bottom: 0.5rem;
   }
 
-  .col-form-label-sm {
-    font-size: 0.8rem;
-    padding-bottom: 0;
+  .input-group-sm {
+    .input-group-prepend {
+      .input-group-text {
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .input-group-prepend {
+    width: 35%;
+  }
+
+  .input-group-text {
+    font-size: 0.75rem;
+    width: 100%;
   }
 
   .col-6,
   .col-md-6 {
     padding-left: 0;
-  }
-
-  .form-control-sm {
-    font-size: 0.8rem;
   }
 
   .btn {
