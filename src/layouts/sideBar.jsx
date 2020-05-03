@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from "react-router-dom";
 import { Nav } from "reactstrap";
 import logo from "../assets/img/Lunularia-blue-60.svg";
-// javascript plugin used to create scrollbars on windows
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PerfectScrollbar from "perfect-scrollbar";
 
 var ps;
@@ -74,7 +74,8 @@ class SideBar extends Component {
                     className="nav-link"
                     activeClassName="active"
                   >
-                    <i className={prop.icon} />
+                    {/* <i className={prop.icon} /> */}
+                    <FontAwesomeIcon icon={prop.icon} />
                     <p>{prop.name}</p>
                   </NavLink>
                 </li>

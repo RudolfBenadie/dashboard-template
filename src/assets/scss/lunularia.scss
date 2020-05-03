@@ -11,4 +11,24 @@
 @import './lunularia/navbar';
 @import './lunularia/footers';
 
+@import './lunularia/responsive';
+
 @import './lunularia/nucleo-outline';
+
+html {
+  height: 100vh;
+}
+
+html::before,
+html::after {
+  box-sizing: unset !important;
+}
+
+body {
+  height: 100vh;
+}
+
+body::before,
+body::after {
+  box-sizing: content-box !important;
+}

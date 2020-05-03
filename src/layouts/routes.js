@@ -6,7 +6,7 @@ var routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    icon: "nc-icon nc-layout-11",
+    icon: "tachometer-alt",
     component: Dashboard,
     layout: ""
   }
