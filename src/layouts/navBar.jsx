@@ -17,6 +17,7 @@ import {
   InputGroupAddon,
   Input
 } from "reactstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { signOut } from '../store/actions/authActions';
 import routes from "./routes";
 
@@ -33,6 +34,10 @@ class NavBar extends Component {
     this.toggle = this.toggle.bind(this);
     this.dropdownToggle = this.dropdownToggle.bind(this);
     this.sidebarToggle = React.createRef();
+  }
+
+  doSearch = (e) => {
+    e.preventDefault();
   }
 
   toggle() {
@@ -103,7 +108,6 @@ class NavBar extends Component {
 
   render() {
     return (
-      // add or remove classes depending if we are on full-screen-maps page or not
       <Navbar
         color={"dark"}
         expand="lg"
@@ -123,7 +127,7 @@ class NavBar extends Component {
                 <span className="navbar-toggler-bar bar3" />
               </button>
             </div>
-            <NavbarBrand href="/">{this.getBrand()}</NavbarBrand>
+            <NavbarBrand>{this.getBrand()}</NavbarBrand>
           </div>
           <NavbarToggler onClick={this.toggle}>
             <span className="navbar-toggler-bar navbar-kebab" />
@@ -131,53 +135,33 @@ class NavBar extends Component {
             <span className="navbar-toggler-bar navbar-kebab" />
           </NavbarToggler>
           <div className="justify-content-end">
-            <form>
+            <form onSubmit={this.doSearch}>
               <InputGroup className="no-border">
                 <Input placeholder="Search..." />
-                <InputGroupAddon addonType="append">
+                <InputGroupAddon addonType="append" onClick={this.doSearch}>
                   <InputGroupText>
-                    <i className="nc-icon nc-zoom-split" />
+                    <FontAwesomeIcon icon="search" />
                   </InputGroupText>
                 </InputGroupAddon>
               </InputGroup>
             </form>
             <Nav navbar>
               <NavItem>
-                <Link to="#pablo" className="nav-link btn-magnify">
-                  <i className="nc-icon nc-chart-bar-32" />
-                  {/* <p>
-                    <span className="d-lg-none d-md-block">Stats</span>
-                  </p> */}
+                <Link to="/" className="nav-link btn-rotate" >
+                  <FontAwesomeIcon icon="cog" />
                 </Link>
               </NavItem>
-
-              <NavItem>
-                <Link to="#pablo" className="nav-link btn-rotate">
-                  <i className="nc-icon nc-settings-gear-65" />
-                  {/* <p>
-                    <span className="d-lg-none d-md-block">Account</span>
-                  </p> */}
-                </Link>
-              </NavItem>
-
               <Dropdown
                 nav
                 isOpen={this.state.dropdownOpen}
                 toggle={e => this.dropdownToggle(e)}
               >
                 <DropdownToggle caret nav>
-                  {/* <i className="nc-icon nc-bell-55" />
-                  <p>
-                    <span className="d-lg-none d-md-block">Some Actions</span>
-                  </p> */}
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem tag="a" onClick={this.props.signOut}>Sign out</DropdownItem>
-                  <DropdownItem tag="a">Another Action</DropdownItem>
-                  <DropdownItem tag="a">Something else here</DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-
             </Nav>
           </div>
         </Container>
