@@ -35,6 +35,15 @@ a.nav-link {
     display: inline-flex;
     align-items: center;
 
+    .navbar-brand {
+      color: $primary-color;
+    }
+
+    a:not([href]) {
+      text-decoration: none;
+      cursor: default;
+    }
+
     .navbar-minimize {
       padding-right: 10px;
 
@@ -85,7 +94,6 @@ a.nav-link {
     .nav-item .nav-link:not(.btn):active {
       color: $primary-color;
     }
-
   }
 
   &.navbar-absolute {
@@ -100,4 +108,8 @@ a.nav-link {
       width: initial;
     }
   }
+}
+
+a.dropdown-item {
+  cursor: pointer;
 }

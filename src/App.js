@@ -10,8 +10,14 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faTachometerAlt, faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
-library.add(fab, faTachometerAlt, faCheckSquare, faCoffee);
+import { 
+  faTachometerAlt, 
+  faSearch,
+  faCog,
+  faCheckSquare, 
+  faCoffee 
+} from '@fortawesome/free-solid-svg-icons';
+library.add(fab, faTachometerAlt, faSearch, faCog, faCheckSquare, faCoffee);
 
 class App extends Component {
 
